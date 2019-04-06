@@ -1,2 +1,2 @@
 # iterm-components
-Custom components for use with iTerm2
+Custom status bar components for use with iTerm2
