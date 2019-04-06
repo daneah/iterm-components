@@ -13,7 +13,7 @@ async def main(connection):
         short_description='GitHub stars',
         detailed_description='How many stars a GitHub repository has',
         exemplar='some-user/project ★ 103',
-        update_cadence=30,
+        update_cadence=300,
         identifier='engineering.dane.iterm-components.github-stars',
         knobs=[iterm2.StringKnob('Repository', 'some-user/project', 'some-user/project', KNOB_NAME)],
     )
