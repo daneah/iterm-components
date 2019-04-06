@@ -2,6 +2,7 @@ import random
 
 import iterm2
 
+
 GREETINGS = [
     'Hello, world!',
     '¡Hola mundo!',
@@ -11,6 +12,7 @@ GREETINGS = [
     'Chào thế giới!',
     'Բարեւ աշխարհ!',
 ]
+
 
 async def main(connection):
     component = iterm2.StatusBarComponent(
