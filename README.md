@@ -8,9 +8,13 @@ Custom status bar components for use with iTerm2
 
 Shows the current number of stars for the specified repository. You can add a personal access token in order to minimize rate limiting or to keep tabs on a private repository.
 
+![GitHub stars component](screenshots/github-stars.png)
+
 ### `kubectl` context
 
 Shows the active `kubectl` context.
+
+![kubectl context component](screenshots/kubectl-context.png)
 
 ### `pyenv` (work in progress)
 
