@@ -8,6 +8,14 @@ import iterm2
 REPO_KNOB_NAME = 'GITHUB_REPO'
 TOKEN_KNOB_NAME = 'GITHUB_TOKEN'
 
+def human_number(num):
+    magnitude = 0
+    while abs(num) >= 1000:
+        magnitude += 1
+        num /= 1000.0
+    suffix = ['', 'K', 'M'][magnitude]
+    return f'{num:.1f}{suffix}' if magnitude else f'{num}'
+
 
 async def main(connection):
     component = iterm2.StatusBarComponent(
@@ -36,6 +44,7 @@ async def main(connection):
             stars = json.loads(
                 urllib.request.urlopen(request).read().decode()
             )['stargazers_count']
+            stars = human_number(stars)
         except:
             raise
         else:
