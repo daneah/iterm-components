@@ -1,6 +1,26 @@
 # iterm-components
 Custom status bar components for use with iTerm2
 
+
+## Components
+
+### GitHub stars
+
+Shows the current number of stars for the specified repository. You can add a personal access token in order to minimize rate limiting or to keep tabs on a private repository.
+
+### `kubectl` context
+
+Shows the active `kubectl` context.
+
+### `pyenv` (work in progress)
+
+Shows the active Python version or virtual environment.
+
+### `rvm` gemset (work in progress)
+
+Shows the active gemset.
+
+
 ## Installation
 
 At the moment, I don't know a better way to do this.
