@@ -1,6 +1,8 @@
 # iterm-components
+
 Custom status bar components for use with iTerm2
 
+![Built-in components and custom components](screenshots/example-setup.png)
 
 ## Components
 
