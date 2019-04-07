@@ -5,7 +5,8 @@ import urllib.request
 import iterm2
 
 
-KNOB_NAME = 'GITHUB_REPO'
+REPO_KNOB_NAME = 'GITHUB_REPO'
+TOKEN_KNOB_NAME = 'GITHUB_TOKEN'
 
 
 async def main(connection):
@@ -15,20 +16,28 @@ async def main(connection):
         exemplar='some-user/project ★ 103',
         update_cadence=300,
         identifier='engineering.dane.iterm-components.github-stars',
-        knobs=[iterm2.StringKnob('Repository', 'some-user/project', 'some-user/project', KNOB_NAME)],
+        knobs=[
+            iterm2.StringKnob('Repository', 'some-user/project', 'some-user/project', REPO_KNOB_NAME),
+            iterm2.StringKnob('Personal access token', 'token value (optional, for rate limiting or private repos)', '', TOKEN_KNOB_NAME)
+        ],
     )
 
     @iterm2.StatusBarRPC
     async def github_stars_coroutine(knobs):
-        github_repo = knobs[KNOB_NAME]
+        github_repo = knobs[REPO_KNOB_NAME]
+        token = knobs[TOKEN_KNOB_NAME]
         info_url = f'https://api.github.com/repos/{github_repo}'
 
         try:
+            request = urllib.request.Request(
+                info_url,
+                headers={'Authorization': f'token {token}'} if token else {},
+            )
             stars = json.loads(
-                urllib.request.urlopen(info_url).read().decode()
+                urllib.request.urlopen(request).read().decode()
             )['stargazers_count']
         except:
-            raise RuntimeError(info_url)
+            raise
         else:
             return f'{github_repo} ★ {stars}'
 
