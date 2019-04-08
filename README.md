@@ -43,8 +43,10 @@ $ mkdir -p AutoLaunch && cd AutoLaunch
 $ ln -s /path/to/iterm-components/some_component.py .  # For each component you want to install; cp them if preferred
 ```
 
+With iTerm2 running and selected go to **Scripts > AutoLaunch** and select the scripts you linked or copied into the AutoLaunch folder. You may be prompted to download the Python runtime.
+
 ### Configuring the components
 
-After the components you want are present in the `AutoLaunch` folder, iTerm2 should make them available to use.
+After the components you want are present in the `AutoLaunch` folder and selected in the **Scripts > AutoLaunch** menu, iTerm2 should make them available to use.
 
 Read [the instructions for using status bar components](https://www.iterm2.com/3.3/documentation-status-bar.html) and drag them where you like.
