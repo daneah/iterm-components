@@ -18,6 +18,10 @@ Shows the active `kubectl` context.
 
 ![kubectl context component](screenshots/kubectl-context.png)
 
+### environment variable (work in progress)
+
+Shows the current value of an environment variable, with the option to show or hide the variable name.
+
 ### `pyenv` (work in progress)
 
 Shows the active Python version or virtual environment.
