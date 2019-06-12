@@ -18,7 +18,6 @@ def human_number(num):
 
 async def main(connection):
     github_repo = None
-    app = await iterm2.async_get_app(connection)
 
     component = iterm2.StatusBarComponent(
         short_description='GitHub stars',
