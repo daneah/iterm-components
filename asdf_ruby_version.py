@@ -1,3 +1,6 @@
+# Prints current ruby version using asdf
+# see asdf_ruby_version.sh
+
 import asyncio
 import iterm2
 
