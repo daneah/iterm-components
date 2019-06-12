@@ -22,13 +22,17 @@ Shows the active `kubectl` context.
 
 Shows the current value of an environment variable, with the option to show or hide the variable name.
 
-### `pyenv` (work in progress)
+### `pyenv`
 
 Shows the active Python version or virtual environment.
 
-### `rvm` gemset (work in progress)
+![pyenv component](screenshots/pyenv.png)
+
+### `rvm` gemset
 
 Shows the active gemset.
+
+![rvm gemset component](screenshots/rvm-gemset.png)
 
 
 ## Installation
