@@ -4,8 +4,6 @@ import urllib.request
 
 import iterm2
 
-github_repo = None
-
 REPO_KNOB_NAME = 'GITHUB_REPO'
 TOKEN_KNOB_NAME = 'GITHUB_TOKEN'
 
@@ -19,6 +17,7 @@ def human_number(num):
 
 
 async def main(connection):
+    github_repo = None
     app = await iterm2.async_get_app(connection)
 
     component = iterm2.StatusBarComponent(
@@ -35,7 +34,6 @@ async def main(connection):
 
     @iterm2.RPC
     async def onclick(session_id):
-        global github_repo
         proc = await asyncio.create_subprocess_shell(
             f'open https://github.com/{github_repo}',
             stdout= asyncio.subprocess.PIPE,
@@ -45,7 +43,6 @@ async def main(connection):
 
     @iterm2.StatusBarRPC
     async def github_stars_coroutine(knobs):
-        global github_repo
         github_repo = knobs[REPO_KNOB_NAME]
         token = knobs[TOKEN_KNOB_NAME]
         info_url = f'https://api.github.com/repos/{github_repo}'
