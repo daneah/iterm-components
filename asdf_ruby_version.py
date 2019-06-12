@@ -4,8 +4,8 @@ import iterm2
 async def main(connection):
     component = iterm2.StatusBarComponent(
         short_description="Ruby version",
-        detailed_description="Show ruby version using asdf",
-        exemplar="💎 2.5.3",
+        detailed_description="Print asdf ruby version",
+        exemplar="2.5.3 💎",
         update_cadence=None,
         identifier="me.hgal.iterm-components.ruby-version",
         knobs=[],
