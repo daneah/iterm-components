@@ -1,3 +1,9 @@
+"""
+To use this component, add the following to iterm2_print_user_vars:
+
+    iterm2_set_user_var python_version $(pyenv_prompt_info)
+"""
+
 import asyncio
 
 import iterm2
@@ -14,19 +20,9 @@ async def main(connection):
     )
 
     @iterm2.StatusBarRPC
-    async def pyenv_coroutine(knobs):
-        proc = await asyncio.create_subprocess_shell(
-            'pyenv local',
-            stdout=asyncio.subprocess.PIPE,
-            stderr=asyncio.subprocess.PIPE,
-        )
-        stdout, stderr = await proc.communicate()
-
-        if stderr:
-            return stderr.decode().strip()
-
-        env = stdout.decode().strip()
-        return f'🐍 {env}'
+    async def pyenv_coroutine(knobs, python=iterm2.Reference('user.python_version?')):
+        python = python or '☠️'
+        return f'🐍 {python}'
 
     await component.async_register(connection, pyenv_coroutine)
 
