@@ -8,7 +8,9 @@ Custom status bar components for use with iTerm2
 
 ### GitHub stars
 
-Shows the current number of stars for the specified repository. You can add a personal access token in order to minimize rate limiting or to keep tabs on a private repository.
+Shows the current number of stars for the specified repository.
+Clicking on the text takes you to the repo in your default browser.
+You can add a personal access token in order to minimize rate limiting or to keep tabs on a private repository.
 
 ![GitHub stars component](screenshots/github-stars.png)
 
