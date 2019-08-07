@@ -10,7 +10,7 @@ async def main(connection):
     component = iterm2.StatusBarComponent(
         short_description='Execute a user defined command',
         detailed_description='A super simple component where both the command creating the text and a prefix can be defined by the user',
-        exemplar='⎈ docker-for-desktop',
+        exemplar='> hello world',
         update_cadence=2,
         identifier='engineering.dane.iterm-components.generic-command',
         knobs=[
