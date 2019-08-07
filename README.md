@@ -37,6 +37,11 @@ Shows the active gemset.
 ![rvm gemset component](screenshots/rvm-gemset.png)
 
 
+### Generic command
+
+Display the stdout from an arbitrary command.
+
+
 ## Installation
 
 At the moment, I don't know a better way to do this.
