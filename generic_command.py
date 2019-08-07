@@ -11,7 +11,7 @@ async def main(connection):
         short_description='Execute a user defined command',
         detailed_description='A super simple component where both the command creating the text and a prefix can be defined by the user',
         exemplar='> hello world',
-        update_cadence=2,
+        update_cadence=7,
         identifier='engineering.dane.iterm-components.generic-command',
         knobs=[
            iterm2.StringKnob('Script', 'echo "hello world"', '', SCRIPT),
