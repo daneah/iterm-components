@@ -9,7 +9,7 @@ PREFIX = 'PREFIX'
 async def main(connection):
     component = iterm2.StatusBarComponent(
         short_description='Execute a user defined command',
-        detailed_description='A super simple component where both the command creating the text and a prefix can be defined by the user',
+        detailed_description='A component that displays the output of an arbitrary command with an optional prefix',
         exemplar='> hello world',
         update_cadence=7,
         identifier='engineering.dane.iterm-components.generic-command',
