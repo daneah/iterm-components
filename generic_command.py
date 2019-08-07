@@ -27,7 +27,9 @@ async def main(connection):
             stderr=asyncio.subprocess.PIPE,
         )
         stdout, stderr = await proc.communicate()
-        return f'{knobs[PREFIX]} {stdout.decode().strip()}' if not stderr else 'Command failed!'
+        prefix = knobs[PREFIX]
+        prefix = f'{prefix} ' if prefix else ''
+        return f'{prefix}{stdout.decode().strip()}' if not stderr else 'Command failed!'
 
     await component.async_register(connection, generic_command_coroutine)
 
