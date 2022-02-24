@@ -63,7 +63,7 @@ async def main(connection):
             stars = human_number(stars)
         except HTTPError as e:
             if e.code == 404:
-                return f'❓ Repository not found'
+                return '❓ Repository not found'
             elif e.code == 401:
                 return '🔐 Invalid access token'
 
