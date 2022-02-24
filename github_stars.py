@@ -1,6 +1,9 @@
+#!/usr/bin/env python
+
 import asyncio
 import json
 import urllib.request
+from urllib.error import HTTPError
 
 import iterm2
 
@@ -22,7 +25,7 @@ async def main(connection):
     component = iterm2.StatusBarComponent(
         short_description='GitHub stars',
         detailed_description='How many stars a GitHub repository has',
-        exemplar='some-user/project ★ 103',
+        exemplar='daneah/iterm-components ★ 67',
         update_cadence=300,
         identifier='engineering.dane.iterm-components.github-stars',
         knobs=[
@@ -43,8 +46,11 @@ async def main(connection):
     @iterm2.StatusBarRPC
     async def github_stars_coroutine(knobs):
         github_repo = knobs[REPO_KNOB_NAME]
-        token = knobs[TOKEN_KNOB_NAME]
         info_url = f'https://api.github.com/repos/{github_repo}'
+
+        token = knobs[TOKEN_KNOB_NAME]
+        if not token:
+            return '🔐 Configure access token'
 
         try:
             request = urllib.request.Request(
@@ -55,7 +61,12 @@ async def main(connection):
                 urllib.request.urlopen(request).read().decode()
             )['stargazers_count']
             stars = human_number(stars)
-        except:
+        except HTTPError as e:
+            if e.code == 404:
+                return '❓ Repository not found'
+            elif e.code == 401:
+                return '🔐 Invalid access token'
+
             raise
         else:
             return f'{github_repo} ★ {stars}'
