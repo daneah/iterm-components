@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 """
 To use this component, add the following to iterm2_print_user_vars:
 

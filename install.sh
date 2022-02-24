@@ -11,5 +11,6 @@ echo Linking scripts to AutoLaunch folder $autolaunch_dir
 
 for script in $(ls *.py); do
     echo Linking $script...
-    ln -si $script "$autolaunch_dir/$script"
+    chmod +x $script
+    cp $script "$autolaunch_dir/$script"
 done

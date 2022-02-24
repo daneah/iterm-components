@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 import asyncio
 
 import iterm2
@@ -16,7 +18,7 @@ async def main(connection):
     @iterm2.StatusBarRPC
     async def kubectl_context_coroutine(knobs):
         proc = await asyncio.create_subprocess_shell(
-            'kubectl config current-context',
+            '/usr/local/bin/kubectl config current-context',
             stdout=asyncio.subprocess.PIPE,
             stderr=asyncio.subprocess.PIPE,
         )
